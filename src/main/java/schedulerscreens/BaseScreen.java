@@ -34,8 +34,17 @@ public void hideKeyBoard(){
         driver.hideKeyboard();//skritj klaviatyry
 }
 public void shouldHave(MobileElement element, String text, int time){
-        new WebDriverWait(driver, 10)
+        new WebDriverWait(driver, 30)
                 .until(ExpectedConditions.textToBePresentInElement(element,text));
+}
+
+public boolean isDisplayedWithExp(MobileElement element){
+      try {
+          should(element, 15);
+          return element.isDisplayed();
+      } catch(Exception ex){
+          return false;
+      }
 }
 
 }
